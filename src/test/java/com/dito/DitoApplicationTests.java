@@ -1,4 +1,4 @@
-package com.dito.dito;
+package com.dito;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
