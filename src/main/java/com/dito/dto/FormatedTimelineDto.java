@@ -1,0 +1,12 @@
+package com.dito.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+import java.util.List;
+
+@Data
+@AllArgsConstructor
+public class FormatedTimelineDto {
+    private List<PurchaseDto> timeline;
+}
