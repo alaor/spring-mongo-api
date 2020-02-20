@@ -1,9 +1,9 @@
-package com.dito.dto;
+package com.dito.dto.external;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CustomDataApiDto {
+public class CustomDataDto {
 
     private String key;
     private String value;

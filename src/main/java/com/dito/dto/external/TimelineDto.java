@@ -1,4 +1,4 @@
-package com.dito.dto;
+package com.dito.dto.external;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -6,16 +6,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ResponseApiTimelineDto {
+public class TimelineDto {
 
     @JsonProperty("events")
-    private List<EventsApiDto> events;
+    private List<EventsDto> events;
 
-    public List<EventsApiDto> getEvents() {
+    public List<EventsDto> getEvents() {
         return events;
     }
 
-    public void setEvents(List<EventsApiDto> events) {
+    public void setEvents(List<EventsDto> events) {
         this.events = events;
     }
 

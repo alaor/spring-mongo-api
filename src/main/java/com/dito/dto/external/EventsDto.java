@@ -1,18 +1,19 @@
-package com.dito.dto;
+package com.dito.dto.external;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.util.Date;
 import java.util.List;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class EventsApiDto {
+public class EventsDto {
 
     private String event;
-    private String timestamp;
+    private Date timestamp;
     private String revenue;
     @JsonProperty("custom_data")
-    private List<CustomDataApiDto> customData;
+    private List<CustomDataDto> customData;
 
     public String getEvent() {
         return event;
@@ -22,11 +23,11 @@ public class EventsApiDto {
         this.event = event;
     }
 
-    public String getTimestamp() {
+    public Date getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(String timestamp) {
+    public void setTimestamp(Date timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -38,11 +39,11 @@ public class EventsApiDto {
         this.revenue = revenue;
     }
 
-    public List<CustomDataApiDto> getCustomData() {
+    public List<CustomDataDto> getCustomData() {
         return customData;
     }
 
-    public void setCustomData(List<CustomDataApiDto> customData) {
+    public void setCustomData(List<CustomDataDto> customData) {
         this.customData = customData;
     }
 

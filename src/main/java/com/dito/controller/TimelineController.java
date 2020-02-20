@@ -1,7 +1,7 @@
 package com.dito.controller;
 
 
-import com.dito.dto.ResponseApiTimelineDto;
+import com.dito.dto.external.TimelineDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
@@ -23,10 +23,9 @@ public class TimelineController {
     }
 
     @GetMapping
-    public ResponseApiTimelineDto getEndpoint() {
-        System.out.println("TESTE");
+    public TimelineDto getEndpoint() {
         return restTemplate.getForObject("https://storage.googleapis.com/dito-questions/events.json",
-                ResponseApiTimelineDto.class);
+                TimelineDto.class);
     }
 
 }
