@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -51,6 +52,26 @@ public class EventControllerTest {
                 .andExpect(jsonPath("$", hasSize(1)))
                 .andExpect(jsonPath("$[0].id", is("1")))
                 .andExpect(jsonPath("$[0].event", is("buy")));
+
+    }
+
+    @Test
+    public void create() throws Exception {
+
+        Event event = new Event();
+        event.setEvent("testing");
+        event.setId("1a2b3c");
+        when(controller.create(any(Event.class))).thenReturn(ResponseEntity.ok(event));
+
+        mockMvc.perform(post("/events")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{ \"id\": \"1a2b3c\", \"event\": \"testing\" }")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andDo(print())
+                .andExpect(jsonPath("$.id").value(event.getId()))
+                .andExpect(jsonPath("$.event").value(event.getEvent()));
+
 
     }
 
